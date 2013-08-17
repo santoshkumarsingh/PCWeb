@@ -1,0 +1,56 @@
+﻿@model PCWeb.Models.InputViewModel
+
+@{
+    ViewBag.Title = "Base64";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Base64</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="row">
+        <div class="span6">
+            <fieldset>
+                <legend>InputViewModel</legend>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Input)
+                </div>
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.Input)
+                    @Html.ValidationMessageFor(model => model.Input)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Output)
+                </div>
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.Output)
+                    @Html.ValidationMessageFor(model => model.Output)
+                </div>
+
+                <p>
+                    <input type="submit" value="Convert To Base64" class="btn" />
+                </p>
+            </fieldset>
+        </div>
+        <div class="span6">
+            <h4 class="muted">Base64</h4>
+            <p>Base64 is a group of similar binary-to-text encoding schemes that represent binary data in an ASCII string format by translating it into a radix-64 representation.</p>
+            <a href="http://en.wikipedia.org/wiki/Base64" class="btn btn-info">More Info</a>
+        </div>
+    </div>
+    
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

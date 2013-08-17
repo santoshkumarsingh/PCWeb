@@ -1,0 +1,50 @@
+﻿@model PCWeb.Models.InputViewModel
+
+@{
+    ViewBag.Title = "StringToBinary";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="row">
+        <div class="span6">
+            <fieldset>
+                <legend>InputViewModel</legend>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Input)
+                </div>
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.Input)
+                    @Html.ValidationMessageFor(model => model.Input)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Output)
+                </div>
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.Output)
+                    @Html.ValidationMessageFor(model => model.Output)
+                </div>
+
+                <p>
+                    <input type="submit" value="Convert to Binary" class="btn" />
+                </p>
+            </fieldset>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

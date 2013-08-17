@@ -1,0 +1,22 @@
+﻿@model PCWeb.Models.InputViewModel
+
+@{
+    ViewBag.Title = "HashFile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>HashFile</h2>
+
+@using (Html.BeginForm("HashFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="file" />
+    <input type="submit" value="OK" />
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
