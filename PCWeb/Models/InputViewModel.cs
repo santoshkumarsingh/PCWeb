@@ -10,7 +10,7 @@ namespace PCWeb.Models
     {
         [Required()]
         public string Input { get; set; }
-        [Required()]
+        
         public string Output { get; set; }
     }
 }
