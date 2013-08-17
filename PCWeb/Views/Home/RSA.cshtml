@@ -15,6 +15,7 @@
     @Html.ValidationSummary(true)
 
     <div class="row">
+
         <div class="span8">
             <fieldset>
                 <legend>RSAViewModel</legend>
@@ -23,7 +24,7 @@
                     @Html.LabelFor(model => model.PlainText)
                 </div>
                 <div class="editor-field">
-                    @Html.TextAreaFor(model => model.PlainText, new { rows = "5", cols = "8" })
+                    @Html.TextAreaFor(model => model.PlainText, new  { @class = "input-xxlarge",cols=20,rows=5 })
                     @Html.ValidationMessageFor(model => model.PlainText)
                 </div>
 
@@ -31,7 +32,7 @@
                     @Html.LabelFor(model => model.CipherText)
                 </div>
                 <div class="editor-field">
-                    @Html.TextAreaFor(model => model.CipherText, new { rows = "5", cols = "8" })
+                    @Html.TextAreaFor(model => model.CipherText,new  { @class = "input-xxlarge",cols=20,rows=5 })
                     @Html.ValidationMessageFor(model => model.CipherText)
                 </div>
 
@@ -39,7 +40,7 @@
                     @Html.LabelFor(model => model.PublicKey)
                 </div>
                 <div class="editor-field">
-                    @Html.TextAreaFor(model => model.PublicKey, new { rows = "5", cols = "8" })
+                    @Html.TextAreaFor(model => model.PublicKey, new  { @class = "input-xxlarge",cols=20,rows=5 })
                     @Html.ValidationMessageFor(model => model.PublicKey)
                 </div>
 
@@ -47,7 +48,7 @@
                     @Html.LabelFor(model => model.PrivateKey)
                 </div>
                 <div class="editor-field">
-                    @Html.TextAreaFor(model => model.PrivateKey, new { rows = "5", cols = "8" })
+                    @Html.TextAreaFor(model => model.PrivateKey,new  { @class = "input-xxlarge",cols=20,rows=5 })
                     @Html.ValidationMessageFor(model => model.PrivateKey)
                 </div>
 
@@ -55,7 +56,7 @@
                     @Html.LabelFor(model => model.DecryptedText)
                 </div>
                 <div class="editor-field">
-                    @Html.TextAreaFor(model => model.DecryptedText, new { rows = "5", cols = "8" })
+                    @Html.TextAreaFor(model => model.DecryptedText, new  { @class = "input-xxlarge",cols=20,rows=5 })
                     @Html.ValidationMessageFor(model => model.DecryptedText)
                 </div>
 
@@ -64,7 +65,7 @@
                 </p>
             </fieldset>
         </div>
-        <div class="sapn6">
+        <div class="sapn4">
             <h4 class="muted">RSA Algorithm</h4>
             <p>RSA is an algorithm for public-key cryptography that is based on the presumed difficulty of factoring large integers, the factoring problem. RSA stands for Ron Rivest, Adi Shamir and Leonard Adleman, who first publicly described the algorithm in 1977. Clifford Cocks, an English mathematician, had developed an equivalent system in 1973, but it wasn't declassified until 1997</p>
             <p>
@@ -87,12 +88,9 @@ The private key is used to decrypt text that has been encrypted with the public 
             </ul>
 
         </div>
-
     </div>
 }
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

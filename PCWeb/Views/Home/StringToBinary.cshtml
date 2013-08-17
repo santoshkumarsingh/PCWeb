@@ -10,6 +10,9 @@
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
+    <div  class="row">
+        <div class="span8">
+
 
     <fieldset>
         <legend>InputViewModel</legend>
@@ -18,7 +21,7 @@
             @Html.LabelFor(model => model.Input)
         </div>
         <div class="editor-field">
-            @Html.TextAreaFor(model => model.Input)
+            @Html.TextAreaFor(model => model.Input, new  { @class = "input-xxlarge",cols=20,rows=5 })
             @Html.ValidationMessageFor(model => model.Input)
         </div>
 
@@ -26,7 +29,7 @@
             @Html.LabelFor(model => model.Output)
         </div>
         <div class="editor-field">
-            @Html.TextAreaFor(model => model.Output)
+            @Html.TextAreaFor(model => model.Output,new  { @class = "input-xxlarge",cols=20,rows=5 })
             @Html.ValidationMessageFor(model => model.Output)
         </div>
 
@@ -34,11 +37,12 @@
             <input type="submit" value="Convert To String" class="btn btn-primary" />
         </p>
     </fieldset>
+            
+        </div>
+    </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

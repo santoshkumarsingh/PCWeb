@@ -2,13 +2,19 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Description" content="Programmers Calculator is a free calculator for programmers which can be used to convert text to and from Base64 encoding, it can also be used to convert text to binary, generate MD5, SHA1, SHA256 hash values of both text and files and several other useful functions that programmers are in need of during the course of their work. Programmers Calculator is free and very lightweight" />
+    @*<meta name="viewport" content="width=device-width, initial-scale=1.0">*@
+    <meta name="Description" content="Programmers Calculator is a free calculator for programmers which can be used to convert text to and from Base64 encoding, it can also be used to convert text to binary, generate MD5, SHA1, SHA256 hash values of both text and files and several other useful functions that programmers are in need of during the course of their work. Programmers Calculator is free and very lightweight" />
+
     <title>@ViewBag.Title - Programars Calculator</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
-
+    <style type="text/css">
+        body {
+            padding-top: 50px;
+            padding-bottom: 40px;
+        }
+    </style>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top navbar">
@@ -50,7 +56,7 @@
                             </ul>
                         </li>
                     </ul>
-                    @Html.Partial("_LoginPartial")
+                    @*@Html.Partial("_LoginPartial")*@
                 </div>
             </div>
         </div>
@@ -58,11 +64,27 @@
 
 
     <div class="container">
-        <div class="span12">
+        
+        @RenderBody()
 
-            @RenderBody()
-        </div>
     </div>
+    <hr>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>
+                    &copy; @DateTime.Now.Year - Santosh Kumar Singh
+                </p>
+            </div>
+            <div class="float-right">
+                <ul id="social">
+                    <li><a href="https://www.facebook.com/aspdotnetcodebook" class="facebook">Facebook</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </footer>
+
 
 
 
@@ -80,7 +102,7 @@
         ga('create', 'UA-43264445-1', 'apphb.com');
         ga('send', 'pageview');
 
-</script>
+    </script>
 </body>
 </html>
 

@@ -10,9 +10,9 @@
     <p>This simple tool computes the MD5 hash of a string. Also available is a <a href="sha1.php">SHA-1 hash generator</a>.</p>
 </blockquote>
 </p>
-<div class="row">
+<div class="row-fluid">
  
-    <div class="span6">
+    <div class="span8">
 
         @using (Html.BeginForm())
         {
@@ -26,7 +26,7 @@
                     @Html.LabelFor(model => model.Input)
                 </div>
                 <div class="editor-field">
-                    @Html.TextAreaFor(model => model.Input)
+                    @Html.TextAreaFor(model => model.Input,new  { @class = "input-xxlarge",cols=20,rows=5 })
                     @Html.ValidationMessageFor(model => model.Input)
                 </div>
 
@@ -34,7 +34,7 @@
                     @Html.LabelFor(model => model.Output)
                 </div>
                 <div class="editor-field">
-                    @Html.TextAreaFor(model => model.Output)
+                    @Html.TextAreaFor(model => model.Output,new  { @class = "input-xxlarge",cols=20,rows=5 })
                     @Html.ValidationMessageFor(model => model.Output)
                 </div>
 
@@ -49,9 +49,7 @@
     @Html.Partial("_HashDescription");
 
 </div>
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
