@@ -5,8 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>HashMd5</h2>
+<p>
+       <blockquote>
+    <p>This simple tool computes the MD5 hash of a string. Also available is a <a href="sha1.php">SHA-1 hash generator</a>.</p>
+</blockquote>
+</p>
 <div class="row">
+ 
     <div class="span6">
 
         @using (Html.BeginForm())
@@ -34,7 +39,7 @@
                 </div>
 
                 <p>
-                    <input type="submit" value="Save" />
+                    <input type="submit" value="Calculate Md5" class="btn btn-info" />
                 </p>
             </fieldset>
    

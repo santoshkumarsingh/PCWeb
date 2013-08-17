@@ -29,12 +29,12 @@
                     @Html.LabelFor(model => model.Output)
                 </div>
                 <div class="editor-field">
-                    @Html.TextAreaFor(model => model.Output)
+                    @Html.(model => model.Output)
                     @Html.ValidationMessageFor(model => model.Output)
                 </div>
 
                 <p>
-                    <input type="submit" value="Convert To Base64" class="btn" />
+                    <input type="submit" value="Convert To Base64" class="btn btn-info" />
                 </p>
             </fieldset>
         </div>

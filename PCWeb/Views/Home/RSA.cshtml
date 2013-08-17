@@ -1,0 +1,99 @@
+﻿@model PCWeb.Models.RSAViewModel
+
+@{
+    ViewBag.Title = "RSA";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>RSA</h2>
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="row">
+        <div class="span6">
+            <fieldset>
+                <legend>RSAViewModel</legend>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.PlainText)
+                </div>
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.PlainText, new { rows = "6", cols = "8" })
+                    @Html.ValidationMessageFor(model => model.PlainText)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.CipherText)
+                </div>
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.CipherText, new { rows = "6", cols = "8" })
+                    @Html.ValidationMessageFor(model => model.CipherText)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.PublicKey)
+                </div>
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.PublicKey, new { rows = "6", cols = "8" })
+                    @Html.ValidationMessageFor(model => model.PublicKey)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.PrivateKey)
+                </div>
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.PrivateKey, new { rows = "6", cols = "8" })
+                    @Html.ValidationMessageFor(model => model.PrivateKey)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.DecryptedText)
+                </div>
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.DecryptedText, new { rows = "6", cols = "8" })
+                    @Html.ValidationMessageFor(model => model.DecryptedText)
+                </div>
+
+                <p>
+                    <input type="submit" value="Save" class="btn btn-info" />
+                </p>
+            </fieldset>
+        </div>
+        <div class="sapn6">
+            <h4 class="muted">RSA Algorithm</h4>
+            <p>RSA is an algorithm for public-key cryptography that is based on the presumed difficulty of factoring large integers, the factoring problem. RSA stands for Ron Rivest, Adi Shamir and Leonard Adleman, who first publicly described the algorithm in 1977. Clifford Cocks, an English mathematician, had developed an equivalent system in 1973, but it wasn't declassified until 1997</p>
+            <p>
+                The mathematical details of the algorithm used in obtaining the public and private keys are available at the RSA Web site. Briefly, the algorithm involves multiplying two large prime numbers (a prime number is a number divisible only by that number and 1) and through additional operations deriving a set of two numbers that constitutes the public key and another set that is the private key. Once the keys have been developed, the original prime numbers are no longer important and can be discarded. Both the public and the private keys are needed for encryption /decryption but only the owner of a private key ever needs to know it. Using the RSA system, the private key never needs to be sent across the Internet.
+
+The private key is used to decrypt text that has been encrypted with the public key. Thus, if I send you a message, I can find out your public key (but not your private key) from a central administrator and encrypt a message to you using your public key. When you receive it, you decrypt it with your private key. In addition to encrypting messages (which ensures privacy), you can authenticate yourself to me (so I know that it is really you who sent the message) by using your private key to encrypt a digital certificate. When I receive it, I can use your public key to decrypt it. A table might help us remember this.
+            </p>
+            <ul>
+                <li>Choose p = 3 and q = 11 </li>
+                <li>Compute n = p * q = 3 * 11 = 33 </li>
+                <li>Compute &phi;(n) = (p - 1) * (q - 1) = 2 * 10 = 20 </li>
+                <li>Choose e such that 1 < e < &phi;(n) and e and n are coprime. 
+     Let e = 7 </li>
+                <li>Compute a value for d such that (d * e) % &phi;(n) = 1. One 
+     solution is d = 3 [(3 * 7) % 20 = 1] </li>
+                <li>Public key is (e, n) =&gt; (7, 33) </li>
+                <li>Private key is (d, n) =&gt; (3, 33) </li>
+                <li>The encryption of <i>m = 2</i> is <i>c = 2<sup>7</sup> % 33 = 29</i></li>
+                <li>The decryption of <i>c = 29</i> is <i>m = 29<sup>3</sup> % 33 = 2</i></li>
+            </ul>
+
+        </div>
+
+    </div>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

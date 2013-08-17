@@ -1,0 +1,53 @@
+﻿@model PCWeb.Models.NumberViewModel
+
+@{
+    ViewBag.Title = "NumberConversion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>NumberConversion</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>NumberViewModel</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Decimal)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Decimal)
+            @Html.ValidationMessageFor(model => model.Decimal)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Octol)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Octol)
+            @Html.ValidationMessageFor(model => model.Octol)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HexaDecimal)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HexaDecimal)
+            @Html.ValidationMessageFor(model => model.HexaDecimal)
+        </div>
+
+        <p>
+            <input type="submit" value="Convert"  class="btn btn-info"/>
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -17,7 +17,24 @@ namespace PCWeb.Controllers
 
             return View();
         }
+        //Base64ToString
 
+        public ActionResult Base64ToString()
+        {
+            InputViewModel viewModel = new InputViewModel();
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Base64ToString(InputViewModel model)
+        {
+            InputViewModel viewModel = new InputViewModel();
+            viewModel.Input = model.Input;
+            viewModel.Output = model.Input.ConvertBase64ToString();
+            ModelState.Clear(); // this is the key, you could also just clear ModelState for the id field
+
+            return View(viewModel);
+        }
 
         public ActionResult Base64()
         {
@@ -94,6 +111,39 @@ namespace PCWeb.Controllers
 
             return View(viewModel);
         }
+        public ActionResult NumberConversion()
+        {
+            NumberViewModel model = new NumberViewModel();
+            return View(model);
 
+        }
+        [HttpPost]
+        public ActionResult NumberConversion(NumberViewModel model)
+        {
+            NumberViewModel viewModel = new NumberViewModel();
+            viewModel.Decimal = model.Decimal;
+            viewModel.Octol = model.Decimal.ToOct();
+            viewModel.HexaDecimal = model.Decimal.ToHex();
+            ModelState.Clear();
+            return View(viewModel);
+
+        }
+
+        public ActionResult RSA()
+        {
+            RSAViewModel model = new RSAViewModel();
+            return View(model);
+
+        }
+        [HttpPost]
+        public ActionResult RSA(RSAViewModel model)
+        {
+
+            RSAViewModel viewModel = RSAUtility.rsa2(model);
+   
+            ModelState.Clear();
+            return View(viewModel);
+
+        }
     }
 }

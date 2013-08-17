@@ -192,6 +192,9 @@
     <Compile Include="Models\Extension.cs" />
     <Compile Include="Models\HashAlgorithmStrategy.cs" />
     <Compile Include="Models\InputViewModel.cs" />
+    <Compile Include="Models\NumberViewModel.cs" />
+    <Compile Include="Models\RSA.cs" />
+    <Compile Include="Models\RSAViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -312,10 +315,13 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Base64.cshtml" />
-    <Content Include="Views\Home\StringToBinary.cshtml" />
     <Content Include="Views\Home\HashMd5.cshtml" />
     <Content Include="Views\Home\HashFile.cshtml" />
     <Content Include="Views\Shared\_HashDescription.cshtml" />
+    <Content Include="Views\Home\Base64ToString.cshtml" />
+    <Content Include="Views\Home\NumberConversion.cshtml" />
+    <Content Include="Views\Home\StringToBinary.cshtml" />
+    <Content Include="Views\Home\RSA.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

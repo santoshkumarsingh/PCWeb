@@ -1,11 +1,11 @@
 ﻿@model PCWeb.Models.InputViewModel
 
 @{
-    ViewBag.Title = "StringToBinary";
+    ViewBag.Title = "Base64ToString";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2></h2><br /><br />
+<h2>Base64ToString</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -18,7 +18,7 @@
             @Html.LabelFor(model => model.Input)
         </div>
         <div class="editor-field">
-            @Html.TextAreaFor(model => model.Input)
+            @Html.EditorFor(model => model.Input)
             @Html.ValidationMessageFor(model => model.Input)
         </div>
 
@@ -26,12 +26,12 @@
             @Html.LabelFor(model => model.Output)
         </div>
         <div class="editor-field">
-            @Html.TextAreaFor(model => model.Output)
+            @Html.EditorFor(model => model.Output)
             @Html.ValidationMessageFor(model => model.Output)
         </div>
 
         <p>
-            <input type="submit" value="Convert To String" class="btn btn-info" />
+            <input type="submit" value="Convert Base64 to String"  class="btn btn-info"/>
         </p>
     </fieldset>
 }

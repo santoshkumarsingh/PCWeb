@@ -6,10 +6,33 @@
     <title>@ViewBag.Title - Programars Calculator</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        #wrap {
+            min-height: 100%;
+        }
+
+        #main {
+            overflow: auto;
+            padding-bottom: 150px; /* this needs to be bigger than footer height*/
+        }
+
+        .footer {
+            position: relative;
+            margin-top: -150px; /* negative value of footer height */
+            height: 150px;
+            clear: both;
+            padding-top: 20px;
+            color: #fff;
+        }
+    </style>
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top navbar">
         <div class="navbar-inner">
             <div class="container">
                 <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -21,20 +44,30 @@
                 <div class="nav-collapse collapse">
                     <ul class="nav">
                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("Base64", "Base64", "Home")</li>
-                        <li>@Html.ActionLink("StringToBinary", "StringToBinary", "Home")</li>
 
-                        
+                        <li>@Html.ActionLink("StringToBinary", "StringToBinary", "Home")</li>
+                        <li>@Html.ActionLink("Number Conversion", "NumberConversion", "Home")</li>
+                        <li>@Html.ActionLink("RSA", "RSA", "Home")</li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Encoding <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("String To Base64", "Base64", "Home")</li>
+                                <li>@Html.ActionLink("Base64 To String ", "Base64ToString", "Home")</li>
+
+
+                            </ul>
+                        </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hashing <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                
-                                  <li>@Html.ActionLink("Md5", "HashMd5", "Home")</li>
-                                  <li>@Html.ActionLink("SHA1", "HashSha1", "Home")</li>
-                                  <li>@Html.ActionLink("SHA256", "HashSha256", "Home")</li>
-                                  <li>@Html.ActionLink("SHA512", "HashSha51", "Home")</li>
+
+                                <li>@Html.ActionLink("Md5", "HashMd5", "Home")</li>
+                                <li>@Html.ActionLink("SHA1", "HashSha1", "Home")</li>
+                                <li>@Html.ActionLink("SHA256", "HashSha256", "Home")</li>
+                                <li>@Html.ActionLink("SHA512", "HashSha51", "Home")</li>
                                 <li>@Html.ActionLink("Hash Of File", "HashFile", "Home")</li>
-                                
+
                             </ul>
                         </li>
                     </ul>
@@ -43,16 +76,25 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        @RenderBody()
-        @*<hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>*@
-    </div>
 
+
+    <div id="wrap">
+        <div id="main" class="container clear-top">
+            <div class="row">
+                <div class="span12">
+
+                    @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    <footer class="footer" style="background-color: #c2c2c2;">
+        santosh
+    </footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>
+

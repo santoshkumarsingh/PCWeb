@@ -19,6 +19,16 @@ namespace PCWeb.Models
             }
             return string.Empty;
         }
+
+        public static string ConvertBase64ToString(this string input)
+        {
+            if (!string.IsNullOrEmpty(input))
+            {
+                var byteData = Convert.FromBase64String(input);
+                return Encoding.UTF8.GetString(byteData);
+            }
+            return string.Empty;
+        }
         public static string StringToBinary(this string strText)
         {
             if (!string.IsNullOrEmpty(strText))
@@ -40,7 +50,7 @@ namespace PCWeb.Models
             if (!string.IsNullOrEmpty(input))
             {
                 byte[] bytes = Encoding.UTF8.GetBytes(input);
-                var bytehash=HashAlgorithm.Create("Md5").ComputeHash(bytes);
+                var bytehash = HashAlgorithm.Create("Md5").ComputeHash(bytes);
                 return bytehash.ByteToHexString();
             }
             return string.Empty;
