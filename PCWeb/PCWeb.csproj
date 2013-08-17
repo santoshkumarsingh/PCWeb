@@ -315,6 +315,7 @@
     <Content Include="Views\Home\StringToBinary.cshtml" />
     <Content Include="Views\Home\HashMd5.cshtml" />
     <Content Include="Views\Home\HashFile.cshtml" />
+    <Content Include="Views\Shared\_HashDescription.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

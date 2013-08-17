@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;
 
@@ -74,17 +75,24 @@ namespace PCWeb.Controllers
         [HttpPost]
         public ActionResult HashFile(HttpPostedFileBase file)
         {
+            InputViewModel viewModel = new InputViewModel();
             // Verify that the user selected a file
             if (file != null && file.ContentLength > 0)
             {
-                // extract only the fielname
-                var fileName = Path.GetFileName(file.FileName);
-                // store the file inside ~/App_Data/uploads folder
-                var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
-                file.SaveAs(path);
+
+                var fileStream = file.InputStream;
+                MemoryStream ms = new MemoryStream();
+                fileStream.CopyTo(ms);
+                viewModel.Input = "";
+                var sha1 = HashAlgorithm.Create("SHA1");
+                var hash = sha1.ComputeHash(ms.ToArray());
+                viewModel.Output = hash.ByteToHexString();
+
             }
             // redirect back to the index action to show the form once again
-            return RedirectToAction("Index");        
+            ModelState.Clear(); // this is the key, you could also just clear ModelState for the id field
+
+            return View(viewModel);
         }
 
     }

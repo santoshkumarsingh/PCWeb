@@ -7,10 +7,33 @@
 
 <h2>HashFile</h2>
 
-@using (Html.BeginForm("HashFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    <input type="file" name="file" />
-    <input type="submit" value="OK" />
+@using (Html.BeginForm("HashFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" })){
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>InputViewModel</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Input)
+        </div>
+        <div class="editor-field">
+          <input type="file" name="file" />
+            @Html.ValidationMessageFor(model => model.Input)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Output)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Output)
+            @Html.ValidationMessageFor(model => model.Output)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
 }
 
 <div>
