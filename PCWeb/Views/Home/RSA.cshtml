@@ -15,7 +15,7 @@
     @Html.ValidationSummary(true)
 
     <div class="row">
-        <div class="span6">
+        <div class="span8">
             <fieldset>
                 <legend>RSAViewModel</legend>
 
@@ -23,7 +23,7 @@
                     @Html.LabelFor(model => model.PlainText)
                 </div>
                 <div class="editor-field">
-                    @Html.TextAreaFor(model => model.PlainText, new { rows = "6", cols = "8" })
+                    @Html.TextAreaFor(model => model.PlainText, new { rows = "5", cols = "8" })
                     @Html.ValidationMessageFor(model => model.PlainText)
                 </div>
 
@@ -31,7 +31,7 @@
                     @Html.LabelFor(model => model.CipherText)
                 </div>
                 <div class="editor-field">
-                    @Html.TextAreaFor(model => model.CipherText, new { rows = "6", cols = "8" })
+                    @Html.TextAreaFor(model => model.CipherText, new { rows = "5", cols = "8" })
                     @Html.ValidationMessageFor(model => model.CipherText)
                 </div>
 
@@ -39,7 +39,7 @@
                     @Html.LabelFor(model => model.PublicKey)
                 </div>
                 <div class="editor-field">
-                    @Html.TextAreaFor(model => model.PublicKey, new { rows = "6", cols = "8" })
+                    @Html.TextAreaFor(model => model.PublicKey, new { rows = "5", cols = "8" })
                     @Html.ValidationMessageFor(model => model.PublicKey)
                 </div>
 
@@ -47,7 +47,7 @@
                     @Html.LabelFor(model => model.PrivateKey)
                 </div>
                 <div class="editor-field">
-                    @Html.TextAreaFor(model => model.PrivateKey, new { rows = "6", cols = "8" })
+                    @Html.TextAreaFor(model => model.PrivateKey, new { rows = "5", cols = "8" })
                     @Html.ValidationMessageFor(model => model.PrivateKey)
                 </div>
 
@@ -55,12 +55,12 @@
                     @Html.LabelFor(model => model.DecryptedText)
                 </div>
                 <div class="editor-field">
-                    @Html.TextAreaFor(model => model.DecryptedText, new { rows = "6", cols = "8" })
+                    @Html.TextAreaFor(model => model.DecryptedText, new { rows = "5", cols = "8" })
                     @Html.ValidationMessageFor(model => model.DecryptedText)
                 </div>
 
                 <p>
-                    <input type="submit" value="Save" class="btn btn-info" />
+                    <input type="submit" value="Generate RSA" class="btn btn-primary" />
                 </p>
             </fieldset>
         </div>

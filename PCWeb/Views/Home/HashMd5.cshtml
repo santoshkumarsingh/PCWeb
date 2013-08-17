@@ -26,7 +26,7 @@
                     @Html.LabelFor(model => model.Input)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.Input)
+                    @Html.TextAreaFor(model => model.Input)
                     @Html.ValidationMessageFor(model => model.Input)
                 </div>
 
@@ -39,7 +39,7 @@
                 </div>
 
                 <p>
-                    <input type="submit" value="Calculate Md5" class="btn btn-info" />
+                    <input type="submit" value="Calculate Md5" class="btn btn-primary" />
                 </p>
             </fieldset>
    

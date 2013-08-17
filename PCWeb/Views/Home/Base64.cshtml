@@ -7,7 +7,7 @@
 
 <h2>Base64</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm(new { @class = "form-horizontal" }))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
@@ -34,14 +34,14 @@
                 </div>
 
                 <p>
-                    <input type="submit" value="Convert To Base64" class="btn btn-info" />
+                    <input type="submit" value="Convert To Base64" class="btn btn-primary" />
                 </p>
             </fieldset>
         </div>
         <div class="span6">
             <h4 class="muted">Base64</h4>
             <p>Base64 is a group of similar binary-to-text encoding schemes that represent binary data in an ASCII string format by translating it into a radix-64 representation.</p>
-            <a href="http://en.wikipedia.org/wiki/Base64" class="btn btn-info">More Info</a>
+            <a href="http://en.wikipedia.org/wiki/Base64" class="btn btn-primary">More Info</a>
         </div>
     </div>
     
