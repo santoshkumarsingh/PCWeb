@@ -5,39 +5,45 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Convert String To Binary</h2><br /><br />
+<h2>Convert String To Binary</h2>
+<br />
+<br />
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-    <div  class="row">
+    <div class="row">
         <div class="span8">
 
 
-    <fieldset>
-    
+            <fieldset>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Input)
-        </div>
-        <div class="editor-field">
-            @Html.TextAreaFor(model => model.Input, new  { @class = "input-xxlarge",cols=20,rows=5 })
-            @Html.ValidationMessageFor(model => model.Input)
-        </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Output)
-        </div>
-        <div class="editor-field">
-            @Html.TextAreaFor(model => model.Output,new  { @class = "input-xxlarge",cols=20,rows=5 })
-            @Html.ValidationMessageFor(model => model.Output)
-        </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Input)
+                </div>
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.Input, new { @class = "input-xxlarge", cols = 20, rows = 5 })
+                    @Html.ValidationMessageFor(model => model.Input)
+                </div>
 
-        <p>
-            <input type="submit" value="Convert To String" class="btn btn-primary" />
-        </p>
-    </fieldset>
-            
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Output)
+                </div>
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.Output, new { @class = "input-xxlarge", cols = 20, rows = 5 })
+                    @Html.ValidationMessageFor(model => model.Output)
+                </div>
+
+                <p>
+                    <input type="submit" value="Convert To String" class="btn btn-primary" />
+                </p>
+            </fieldset>
+
+        </div>
+        <div class="sapn4">
+            @Html.Partial("_GoogleAd")
         </div>
     </div>
 }
