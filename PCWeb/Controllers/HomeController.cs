@@ -164,5 +164,10 @@ namespace PCWeb.Controllers
             return View(viewModel);
 
         }
+
+        public ActionResult Regex()
+        {
+            return View();
+        }
     }
 }
