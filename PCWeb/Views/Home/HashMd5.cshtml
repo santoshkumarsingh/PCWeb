@@ -13,9 +13,9 @@
     </p>
 </blockquote>
 
-<div class="row-fluid">
 
-    <div class="span8">
+
+    <div class="span6">
 
         @using (Html.BeginForm())
         {
@@ -23,7 +23,7 @@
             @Html.ValidationSummary(true)
    
             <fieldset>
-                <legend>MD5</legend>
+                
 
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Input)
@@ -51,7 +51,7 @@
 
     @Html.Partial("_HashDescription");
 
-</div>
+
 
 
 @section Scripts {

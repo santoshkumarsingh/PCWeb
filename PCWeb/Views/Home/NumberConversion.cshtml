@@ -5,14 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>NumberConversion</h2>
+<h2>Convert Decimal number to <p class="text-info">octal,hexadecimal and binary</p></h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Convert Decimal number to <p class="text-info">octal,hexadecimal and binary</p> </legend>
+        
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Decimal)

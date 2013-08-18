@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<HashingInfo>
+  <HashAlgo Type="SHA1">
+    <Description>
+      <blockquote>
+        SHA was designed by NIST and is the US
+        federal standard for hash functions, specified in
+        FIPS-180 (1993).
+      </blockquote>
+      <li>
+        It produces 160-bit hash values.
+      </li>
+    </Description>
+
+  </HashAlgo>
+  <HashAlgo Type="SHA256">
+    <Description>
+      <blockquote>
+        SHA256 was designed by NIST and is the US
+        federal standard for hash functions, specified in
+        FIPS-180 (1993).
+      </blockquote>
+      <li>
+        It produces 160-bit hash values.
+      </li>
+    </Description>
+
+    
+  </HashAlgo>
+
+  <HashAlgo Type="SHA512">
+    <Description>
+      <blockquote>
+        SHA512 was designed by NIST and is the US
+        federal standard for hash functions, specified in
+        FIPS-180 (1993).
+      </blockquote>
+      <li>
+        It produces 160-bit hash values.
+      </li>
+    </Description>
+
+  </HashAlgo>
+</HashingInfo>

@@ -191,6 +191,7 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Extension.cs" />
     <Compile Include="Models\HashAlgorithmStrategy.cs" />
+    <Compile Include="Models\HashInfo.cs" />
     <Compile Include="Models\InputViewModel.cs" />
     <Compile Include="Models\NumberViewModel.cs" />
     <Compile Include="Models\RSA.cs" />
@@ -198,6 +199,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\HashingInfo.xml" />
     <Content Include="ClientBin\RegexTester.xap" />
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap-responsive.min.css" />
@@ -328,9 +330,7 @@
     <Content Include="Views\Home\SHA.cshtml" />
     <Content Include="Views\Home\Regex.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

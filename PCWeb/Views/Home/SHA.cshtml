@@ -5,40 +5,45 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>SHA</h2>
+<h2>SHA1/256/512 Hashing</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
+    <div class="span6">
+        <fieldset>
+            
 
-    <fieldset>
-        <legend>SHA1/256/512 Hashing</legend>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Input)
+            </div>
+            <div class="editor-field">
+                @Html.TextAreaFor(model => model.Input, new { @class = "input-xxlarge", cols = 20, rows = 5 })
+                @Html.ValidationMessageFor(model => model.Input)
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Input)
-        </div>
-        <div class="editor-field">
-            @Html.TextAreaFor(model => model.Input, new  { @class = "input-xxlarge",cols=20,rows=5 })
-            @Html.ValidationMessageFor(model => model.Input)
-        </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Output)
+            </div>
+            <div class="editor-field">
+                @Html.TextAreaFor(model => model.Output, new { @class = "input-xxlarge", cols = 20, rows = 5 })
+                @Html.ValidationMessageFor(model => model.Output)
+            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Output)
-        </div>
-        <div class="editor-field">
-            @Html.TextAreaFor(model => model.Output, new  { @class = "input-xxlarge",cols=20,rows=5 })
-            @Html.ValidationMessageFor(model => model.Output)
-        </div>
-
-        <p>
-            <input type="submit" value="Calculate Hash" class="btn btn-primary" />
-        </p>
-    </fieldset>
+            <p>
+                <input type="submit" value="Calculate Hash" class="btn btn-primary" />
+            </p>
+        </fieldset>
+    </div>
 }
+<div class="span4">
+    <blockquote>
+        @Html.DisplayFor(x => x.Description)
+    </blockquote>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
