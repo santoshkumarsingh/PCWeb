@@ -12,7 +12,7 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>SHA Hashing</legend>
+        <legend>SHA1/256/512 Hashing</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Input)
@@ -31,7 +31,7 @@
         </div>
 
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value="Calculate Hash" class="btn btn-primary" />
         </p>
     </fieldset>
 }

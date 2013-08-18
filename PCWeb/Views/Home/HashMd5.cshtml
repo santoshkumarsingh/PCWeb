@@ -5,14 +5,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<p>
-       <blockquote>
-    <p>This simple tool computes the MD5 hash of a string. Also available is a @Html.ActionLink("SHA1", "SHA", "Home",new { id = "SHA1" },null),
-        @Html.ActionLink("SHA256", "SHA", "Home",new { id = "SHA256" },null) and @Html.ActionLink("SHA-512", "SHA", "Home",new { id = "SHA512" },null)</p>
+
+<blockquote>
+    <p>
+        This simple tool computes the MD5 hash of a string. Also available is a @Html.ActionLink("SHA1", "SHA", "Home", new { id = "SHA1" }, null),
+        @Html.ActionLink("SHA256", "SHA", "Home", new { id = "SHA256" }, null) and @Html.ActionLink("SHA-512", "SHA", "Home", new { id = "SHA512" }, null)
+    </p>
 </blockquote>
-</p>
+
 <div class="row-fluid">
- 
+
     <div class="span8">
 
         @using (Html.BeginForm())
@@ -21,13 +23,13 @@
             @Html.ValidationSummary(true)
    
             <fieldset>
-                <legend>InputViewModel</legend>
+                <legend>MD5</legend>
 
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Input)
                 </div>
                 <div class="editor-field">
-                    @Html.TextAreaFor(model => model.Input,new  { @class = "input-xxlarge",cols=20,rows=5 })
+                    @Html.TextAreaFor(model => model.Input, new { @class = "input-xxlarge", cols = 20, rows = 5 })
                     @Html.ValidationMessageFor(model => model.Input)
                 </div>
 
@@ -35,7 +37,7 @@
                     @Html.LabelFor(model => model.Output)
                 </div>
                 <div class="editor-field">
-                    @Html.TextAreaFor(model => model.Output,new  { @class = "input-xxlarge",cols=20,rows=5 })
+                    @Html.TextAreaFor(model => model.Output, new { @class = "input-xxlarge", cols = 20, rows = 5 })
                     @Html.ValidationMessageFor(model => model.Output)
                 </div>
 
