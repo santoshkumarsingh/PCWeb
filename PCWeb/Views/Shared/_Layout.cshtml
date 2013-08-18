@@ -47,10 +47,11 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hashing <b class="caret"></b></a>
                             <ul class="dropdown-menu">
 
-                                <li>@Html.ActionLink("Md5", "HashMd5", "Home")</li>
-                                <li>@Html.ActionLink("SHA1", "HashSha1", "Home")</li>
-                                <li>@Html.ActionLink("SHA256", "HashSha256", "Home")</li>
-                                <li>@Html.ActionLink("SHA512", "HashSha51", "Home")</li>
+                               @* new { id = 1, tag = "asp.net"}*@
+                                <li>@Html.ActionLink("Md5", "HashMd5", "Home",null, new { id = "MD5" })</li>
+                                <li>@Html.ActionLink("SHA1", "SHA", "Home",new { id = "SHA1" },null)</li>
+                                <li>@Html.ActionLink("SHA256", "SHA", "Home",new { id = "SHA256" },null)</li>
+                                <li>@Html.ActionLink("SHA512", "SHA", "Home",new { id = "SHA512" },null)</li>
                                 <li>@Html.ActionLink("Hash Of File", "HashFile", "Home")</li>
 
                             </ul>

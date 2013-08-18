@@ -1,0 +1,45 @@
+﻿@model PCWeb.Models.InputViewModel
+
+@{
+    ViewBag.Title = "SHA";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>SHA</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>SHA Hashing</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Input)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Input, new  { @class = "input-xxlarge",cols=20,rows=5 })
+            @Html.ValidationMessageFor(model => model.Input)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Output)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Output, new  { @class = "input-xxlarge",cols=20,rows=5 })
+            @Html.ValidationMessageFor(model => model.Output)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

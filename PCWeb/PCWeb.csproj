@@ -323,6 +323,7 @@
     <Content Include="Views\Home\NumberConversion.cshtml" />
     <Content Include="Views\Home\StringToBinary.cshtml" />
     <Content Include="Views\Home\RSA.cshtml" />
+    <Content Include="Views\Home\SHA.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

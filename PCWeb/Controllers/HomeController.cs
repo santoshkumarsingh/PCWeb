@@ -145,5 +145,24 @@ namespace PCWeb.Controllers
             return View(viewModel);
 
         }
+
+
+        public ActionResult SHA()
+        {
+            InputViewModel model = new InputViewModel();
+            return View(model);
+
+        }
+        [HttpPost]
+        public ActionResult SHA(InputViewModel model, string id)
+        {
+            InputViewModel viewModel = new InputViewModel();
+            viewModel.Input = model.Input;
+            viewModel.Output = model.Input.SHAAlgorithm(id);
+            ModelState.Clear(); // this is the key, you could also just clear ModelState for the id field
+
+            return View(viewModel);
+
+        }
     }
 }

@@ -55,12 +55,12 @@ namespace PCWeb.Models
             }
             return string.Empty;
         }
-        public static string SHA1(this string input)
+        public static string SHAAlgorithm(this string input,string algorithmName)
         {
             if (!string.IsNullOrEmpty(input))
             {
                 byte[] bytes = Encoding.UTF8.GetBytes(input);
-                var bytehash = HashAlgorithm.Create("SHA1").ComputeHash(bytes);
+                var bytehash = HashAlgorithm.Create(algorithmName).ComputeHash(bytes);
                 return bytehash.ByteToHexString();
             }
             return string.Empty;
