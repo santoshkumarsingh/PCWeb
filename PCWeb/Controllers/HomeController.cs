@@ -31,7 +31,15 @@ namespace PCWeb.Controllers
         {
             InputViewModel viewModel = new InputViewModel();
             viewModel.Input = model.Input;
-            viewModel.Output = model.Input.ConvertBase64ToString();
+            try
+            {
+                viewModel.Output = model.Input.ConvertBase64ToString();
+            }
+            catch
+            {
+                viewModel.Output = "Invalid Base64 string";
+
+            }
             ModelState.Clear(); // this is the key, you could also just clear ModelState for the id field
 
             return View(viewModel);
@@ -104,7 +112,7 @@ namespace PCWeb.Controllers
                 byteList.Add(Convert.ToByte(data.Substring(i, 8), 2));
             }
 
-            return Encoding.ASCII.GetString(byteList.ToArray());
+            return Encoding.UTF8.GetString(byteList.ToArray());
         }
         public ActionResult HashMd5()
         {
