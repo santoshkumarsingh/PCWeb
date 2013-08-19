@@ -205,6 +205,7 @@
     <Compile Include="Models\NumberViewModel.cs" />
     <Compile Include="Models\RSA.cs" />
     <Compile Include="Models\RSAViewModel.cs" />
+    <Compile Include="Models\UrlShortner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValuesController1.cs" />
   </ItemGroup>
@@ -342,6 +343,7 @@
     <Content Include="Views\Home\SHA.cshtml" />
     <Content Include="Views\Home\Regex.cshtml" />
     <Content Include="Views\Shared\_GoogleAd.cshtml" />
+    <Content Include="Views\Home\UrlShortner.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

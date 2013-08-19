@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
@@ -74,9 +75,9 @@ namespace PCWeb.Controllers
             viewModel.Input = model.Input;
             viewModel.Output = new string(model.Input.StringToBinary().Reverse().ToArray());
             // this is the key, you could also just clear ModelState for the id field
-            ModelState.Clear(); 
+            ModelState.Clear();
 
-            return View("StringToBinary",viewModel);
+            return View("StringToBinary", viewModel);
         }
 
         [HttpPost]
@@ -88,11 +89,11 @@ namespace PCWeb.Controllers
             System.Text.RegularExpressions.Regex r = new System.Text.RegularExpressions.Regex(pattern);
             if (!r.IsMatch(model.Input))
             {
-                ModelState.AddModelError("Error","Invalid Binary Number");
+                ModelState.AddModelError("Error", "Invalid Binary Number");
                 return View("StringToBinary", viewModel);
             }
 
-            
+
             //IEnumerable<string> groups = Enumerable.Range(0, model.Input.Length / 8)
             //                            .Select(i => model.Input.Substring(i * 8, 8));
             viewModel.Input = model.Input;
@@ -186,7 +187,7 @@ namespace PCWeb.Controllers
         {
 
             RSAViewModel viewModel = RSAUtility.rsa2(model);
-   
+
             ModelState.Clear();
             return View(viewModel);
 
@@ -205,7 +206,7 @@ namespace PCWeb.Controllers
         public ActionResult SHA(InputViewModel model, string id)
         {
             var desc = HashInfo.GetHashInfo(id);
-            
+
             InputViewModel viewModel = new InputViewModel();
             viewModel.Input = model.Input;
             viewModel.Output = model.Input.SHAAlgorithm(id);
@@ -219,6 +220,46 @@ namespace PCWeb.Controllers
         public ActionResult Regex()
         {
             return View();
+        }
+
+        public ActionResult UrlShortner()
+        {
+            InputViewModel model = new InputViewModel();
+            return View(model);
+
+        }
+        [HttpPost]
+        public ActionResult UrlShortner(InputViewModel model)
+        {
+            InputViewModel viewModel = new InputViewModel();
+            viewModel.Input = model.Input;
+            viewModel.Output = GoogleResponse(model.Input);
+
+            ModelState.Clear(); // this is the key, you could also just clear ModelState for the id field
+
+            return View(viewModel);
+
+        }
+        private static string GoogleResponse(string p)
+        {
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://www.googleapis.com/urlshortener/v1/url");
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                string json = "{\"longUrl\":\"" + p + "\"}";
+                Console.WriteLine(json);
+                streamWriter.Write(json);
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var responseText = streamReader.ReadToEnd();
+                var result = Newtonsoft.Json.JsonConvert.DeserializeObject<UrlShortner>(responseText);
+                return result.ID;
+            }
         }
     }
 }
