@@ -75,14 +75,25 @@ namespace PCWeb.Controllers
         [MultipleButton(Name = "action", Argument = "StringM")]
         public ActionResult StringM(InputViewModel model)
         {
+            string pattern = @"[10]{8}";
             InputViewModel viewModel = new InputViewModel();
+            System.Text.RegularExpressions.Regex r = new System.Text.RegularExpressions.Regex(pattern);
+            if (!r.IsMatch(model.Input))
+            {
+                ModelState.AddModelError("Error","Invalid Binary Number");
+                return View("StringToBinary", viewModel);
+            }
+
+            
             //IEnumerable<string> groups = Enumerable.Range(0, model.Input.Length / 8)
             //                            .Select(i => model.Input.Substring(i * 8, 8));
             viewModel.Input = model.Input;
             viewModel.Output = BinaryToString(model.Input);
             ModelState.Clear(); // this is the key, you could also just clear ModelState for the id field
 
-            return View("StringToBinary",viewModel);
+            return View("StringToBinary", viewModel);
+
+
         }
         private static string BinaryToString(string data)
         {

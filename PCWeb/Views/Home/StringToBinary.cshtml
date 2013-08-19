@@ -25,7 +25,9 @@
                 </div>
                 <div class="editor-field">
                     @Html.TextAreaFor(model => model.Input, new { @class = "input-xxlarge", cols = 20, rows = 5 })
-                    @Html.ValidationMessageFor(model => model.Input)
+                    @*@Html.ValidationMessageFor(model => model.Input)*@
+                    @Html.ValidationMessage("Error")
+
                 </div>
 
                 <div class="editor-label">
@@ -37,9 +39,9 @@
                 </div>
 
                 <p>
-                    <input type="submit" value="Convert String To Binary"  name="action:Binary" class="btn btn-primary" />
-                    <input type="submit" value="Convert Binary To String"  name="action:StringM" class="btn btn-primary" />
-                  
+                    <input type="submit" value="Convert String To Binary" name="action:Binary" class="btn btn-primary" />
+                    <input type="submit" value="Convert Binary To String" name="action:StringM" class="btn btn-primary" />
+
 
                 </p>
             </fieldset>
