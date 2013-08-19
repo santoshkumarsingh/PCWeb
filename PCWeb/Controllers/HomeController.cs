@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -58,16 +59,42 @@ namespace PCWeb.Controllers
             return View(viewModel);
         }
         [HttpPost]
-        public ActionResult StringToBinary(InputViewModel model)
+        [MultipleButton(Name = "action", Argument = "Binary")]
+        public ActionResult Binary(InputViewModel model)
         {
             InputViewModel viewModel = new InputViewModel();
             viewModel.Input = model.Input;
-            viewModel.Output = model.Input.StringToBinary();
-            ModelState.Clear(); // this is the key, you could also just clear ModelState for the id field
+            viewModel.Output = new string(model.Input.StringToBinary().Reverse().ToArray());
+            // this is the key, you could also just clear ModelState for the id field
+            ModelState.Clear(); 
 
-            return View(viewModel);
+            return View("StringToBinary",viewModel);
         }
 
+        [HttpPost]
+        [MultipleButton(Name = "action", Argument = "StringM")]
+        public ActionResult StringM(InputViewModel model)
+        {
+            InputViewModel viewModel = new InputViewModel();
+            //IEnumerable<string> groups = Enumerable.Range(0, model.Input.Length / 8)
+            //                            .Select(i => model.Input.Substring(i * 8, 8));
+            viewModel.Input = model.Input;
+            viewModel.Output = BinaryToString(model.Input);
+            ModelState.Clear(); // this is the key, you could also just clear ModelState for the id field
+
+            return View("StringToBinary",viewModel);
+        }
+        private static string BinaryToString(string data)
+        {
+            List<Byte> byteList = new List<Byte>();
+
+            for (int i = 0; i < data.Length; i += 8)
+            {
+                byteList.Add(Convert.ToByte(data.Substring(i, 8), 2));
+            }
+
+            return Encoding.ASCII.GetString(byteList.ToArray());
+        }
         public ActionResult HashMd5()
         {
             InputViewModel viewModel = new InputViewModel();

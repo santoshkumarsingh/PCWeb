@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="PCWeb.Base64Validator" CodeBehind="Base64Validator.svc.cs" %>
