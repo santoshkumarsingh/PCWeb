@@ -5,12 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Convert Decimal number to <p class="text-info">octal,hexadecimal and binary</p></h2>
+<h3 class="text-info">Convert Decimal number to binary,octal and hexadecimal</h3>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
-
+    <div class="span5">
     <fieldset>
         
 
@@ -30,6 +30,15 @@
             @Html.ValidationMessageFor(model => model.Octol)
         </div>
 
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Binary)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Binary, new { @class = "input-large", cols = 4, rows = 2 })
+            @Html.ValidationMessageFor(model => model.Binary)
+        </div>
+
         <div class="editor-label">
             @Html.LabelFor(model => model.HexaDecimal)
         </div>
@@ -42,6 +51,68 @@
             <input type="submit" value="Convert"  class="btn btn-primary"/>
         </p>
     </fieldset>
+        </div>
+    <div class="span5">
+        <table border="1">
+            <tbody><tr align="center">
+                <td>DECIMAL</td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+            </tr>
+            <tr align="center">
+                <td>HEX</td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>D</td>
+                <td>E</td>
+                <td>F</td>
+            </tr>
+            <tr align="center">
+                <td>BINARY</td>
+                <td>0000</td>
+                <td>0001</td>
+                <td>0010</td>
+                <td>0011</td>
+                <td>0100</td>
+                <td>0101</td>
+                <td>0110</td>
+                <td>0111</td>
+                <td>1000</td>
+                <td>1001</td>
+                <td>1010</td>
+                <td>1011</td>
+                <td>1100</td>
+                <td>1101</td>
+                <td>1110</td>
+                <td>1111</td>
+            </tr>
+        </tbody></table>
+    </div>
 }
 
 

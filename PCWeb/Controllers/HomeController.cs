@@ -171,6 +171,7 @@ namespace PCWeb.Controllers
             viewModel.Decimal = model.Decimal;
             viewModel.Octol = model.Decimal.ToOct();
             viewModel.HexaDecimal = model.Decimal.ToHex();
+            viewModel.Binary = model.Decimal.ConvetToBase(2);
             ModelState.Clear();
             return View(viewModel);
 
