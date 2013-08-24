@@ -217,7 +217,10 @@ namespace PCWeb.Controllers
             return View(viewModel);
 
         }
-
+        public ActionResult BitMask()
+        {
+            return View();
+        }
         public ActionResult Regex()
         {
             return View();

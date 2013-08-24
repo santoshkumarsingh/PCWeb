@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Bit Mask Calculator";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Scripts.Render("~/Scripts/ProgrammersCalculator.js")
+
+<h2>BitMask</h2>
+@using(Html.BeginForm())
+{
+<table align="center" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" width="100%">
+    <tbody>
+        <tr>
+            <th colspan="4" align="center">BITWISE OPERATORS</th>
+        </tr>
+        <tr>
+            <td rowspan="7" align="center" valign="top">
+                <input type="text" name="op1" value="-9" size="15"></td>
+            <td align="center">
+                <input type="button" name="shftRS" value=" &gt;&gt; " onclick="TestIt(this.form, 0)"></td>
+            <td rowspan="6" align="center" valign="top">
+                <input type="text" name="op2" value="1" size="15">&nbsp;&nbsp;=&nbsp;</td>
+            <td align="center">
+                <input type="text" name="rs0" value="" size="15"></td>
+        </tr>
+        <tr>
+            <td align="center">
+                <input type="button" name="shftR" value="&gt;&gt;&gt;" onclick="TestIt(this.form, 1)"></td>
+            <td align="center">
+                <input type="text" name="rs1" value="" size="15"></td>
+        </tr>
+        <tr>
+            <td align="center">
+                <input type="button" name="shftL" value=" &lt;&lt; " onclick="TestIt(this.form, 2)"></td>
+            <td align="center">
+                <input type="text" name="rs2" value="" size="15"></td>
+        </tr>
+        <tr>
+            <td align="center">
+                <input type="button" name="bwAND" value="  &amp;  " onclick="TestIt(this.form, 3)"></td>
+            <td align="center">
+                <input type="text" name="rs3" value="" size="15"></td>
+        </tr>
+        <tr>
+            <td align="center">
+                <input type="button" name="bwOR" value="  |  " onclick="TestIt(this.form, 4)"></td>
+            <td align="center">
+                <input type="text" name="rs4" value="" size="15"></td>
+        </tr>
+        <tr>
+            <td align="center">
+                <input type="button" name="bwXOR" value="  ^  " onclick="TestIt(this.form, 5)"></td>
+            <td align="center">
+                <input type="text" name="rs5" value="" size="15"></td>
+        </tr>
+        <tr>
+            <td align="center">
+                <input type="button" name="bwNOT" value="  ~  " onclick="TestIt(this.form, 6)"></td>
+            <td align="center">--</td>
+            <td align="center">
+                <input type="text" name="rs6" value="" size="15"></td>
+        </tr>
+        <tr>
+            <td colspan="4" align="center">
+                
+                <textarea name="descr" cols="50" style="margin: 0px 0px 10px; width: 800px; height: 47px;"></textarea>
+
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" align="center">
+                <input type="reset" name="reset" value="Reset"></td>
+        </tr>
+    </tbody>
+</table>
+}
