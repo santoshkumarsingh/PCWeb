@@ -349,7 +349,6 @@
     <Content Include="Views\Home\BitMask.cshtml" />
     <Content Include="Views\Home\JsonToXml.cshtml" />
     <Content Include="Views\Home\XmlToJson.cshtml" />
-    <Content Include="Views\Error.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

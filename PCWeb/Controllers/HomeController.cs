@@ -14,14 +14,13 @@ using System.Xml;
 namespace PCWeb.Controllers
 {
 
-    [HandleError(ExceptionType = typeof(Exception), View = "Error")]
+    [HandleError]
     public class HomeController : Controller
     {
         protected override void OnException(ExceptionContext filterContext)
         {
-            // Do additional things like logging or emailing here.
-            ViewBag.Message = filterContext.Exception.Message;
-            //base.OnException(filterContext);
+            
+            base.OnException(filterContext);
 
         }
         public ActionResult Index()
@@ -267,8 +266,7 @@ namespace PCWeb.Controllers
         [ValidateInput(false)]
         public ActionResult JsonToXml(InputViewModel model)
         {
-            try
-            {
+            
                 InputViewModel viewModel = new InputViewModel();
                 // To convert JSON text contained in string json into an XML node
                 XmlDocument doc = (XmlDocument)JsonConvert.DeserializeXmlNode(model.Input);
@@ -278,12 +276,7 @@ namespace PCWeb.Controllers
                 ModelState.Clear(); // this is the key, you could also just clear ModelState for the id field
 
                 return View(viewModel);
-            }
-            catch (Exception ex)
-            {
-                ViewBag.Message = ex.Message;
-                return View("Error", ViewBag.Message);
-            }
+            
 
         }
 
