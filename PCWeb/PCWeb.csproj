@@ -30,6 +30,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -346,6 +347,9 @@
     <Content Include="Views\Shared\_GoogleAd.cshtml" />
     <Content Include="Views\Home\UrlShortner.cshtml" />
     <Content Include="Views\Home\BitMask.cshtml" />
+    <Content Include="Views\Home\JsonToXml.cshtml" />
+    <Content Include="Views\Home\XmlToJson.cshtml" />
+    <Content Include="Views\Error.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

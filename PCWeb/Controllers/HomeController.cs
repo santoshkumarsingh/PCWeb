@@ -1,4 +1,5 @@
-﻿using PCWeb.Models;
+﻿using Newtonsoft.Json;
+using PCWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,11 +9,21 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml;
 
 namespace PCWeb.Controllers
 {
+
+    [HandleError(ExceptionType = typeof(Exception), View = "Error")]
     public class HomeController : Controller
     {
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            // Do additional things like logging or emailing here.
+            ViewBag.Message = filterContext.Exception.Message;
+            //base.OnException(filterContext);
+
+        }
         public ActionResult Index()
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
@@ -244,6 +255,64 @@ namespace PCWeb.Controllers
             return View(viewModel);
 
         }
+
+        [ValidateInput(false)]
+        public ActionResult JsonToXml()
+        {
+            InputViewModel model = new InputViewModel();
+            return View(model);
+
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult JsonToXml(InputViewModel model)
+        {
+            try
+            {
+                InputViewModel viewModel = new InputViewModel();
+                // To convert JSON text contained in string json into an XML node
+                XmlDocument doc = (XmlDocument)JsonConvert.DeserializeXmlNode(model.Input);
+                viewModel.Input = model.Input;
+                viewModel.Output = doc.InnerXml;
+
+                ModelState.Clear(); // this is the key, you could also just clear ModelState for the id field
+
+                return View(viewModel);
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Message = ex.Message;
+                return View("Error", ViewBag.Message);
+            }
+
+        }
+
+        [ValidateInput(false)]
+        public ActionResult XmlToJson()
+        {
+            InputViewModel model = new InputViewModel();
+            return View(model);
+
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult XmlToJson(InputViewModel model)
+        {
+            InputViewModel viewModel = new InputViewModel();
+            // To convert an XML node contained in string xml into a JSON string   
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(model.Input);
+            string jsonText = JsonConvert.SerializeXmlNode(doc); ;
+            viewModel.Input = model.Input;
+            viewModel.Output = jsonText;
+
+            ModelState.Clear(); // this is the key, you could also just clear ModelState for the id field
+
+            return View(viewModel);
+
+        }
+
+
         private static string GoogleResponse(string p)
         {
             var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://www.googleapis.com/urlshortener/v1/url");

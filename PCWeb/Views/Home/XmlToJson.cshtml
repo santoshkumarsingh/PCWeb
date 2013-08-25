@@ -1,0 +1,47 @@
+﻿@model PCWeb.Models.InputViewModel
+
+@{
+    ViewBag.Title = "XmlToJson";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Convert xml to json</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Input)
+        </div>
+        <div class="editor-field">
+            
+            @Html.TextAreaFor(model => model.Input,new  { @class = "input-xxlarge",cols=20,rows=5 })
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Output)
+        </div>
+        <div class="editor-field">
+            
+            @Html.TextAreaFor(model => model.Output,new  { @class = "input-xxlarge",cols=20,rows=5 })
+        </div>
+
+      
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
