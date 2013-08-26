@@ -349,6 +349,7 @@
     <Content Include="Views\Home\BitMask.cshtml" />
     <Content Include="Views\Home\JsonToXml.cshtml" />
     <Content Include="Views\Home\XmlToJson.cshtml" />
+    <Content Include="Views\Shared\_AdsenseLarge.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
