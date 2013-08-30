@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://programmerscalculator.apphb.com/</loc>
+</url>
+<url>
+  <loc>http://programmerscalculator.apphb.com/Home/StringToBinary</loc>
+</url>
+<url>
+  <loc>http://programmerscalculator.apphb.com/Home/NumberConversion</loc>
+</url>
+<url>
+  <loc>http://programmerscalculator.apphb.com/Home/Regex</loc>
+</url>
+<url>
+  <loc>http://programmerscalculator.apphb.com/Home/BitMask</loc>
+</url>
+<url>
+  <loc>http://programmerscalculator.apphb.com/Home/Base64</loc>
+</url>
+<url>
+  <loc>http://programmerscalculator.apphb.com/Home/Base64ToString</loc>
+</url>
+<url>
+  <loc>http://programmerscalculator.apphb.com/Home/RSA</loc>
+</url>
+<url>
+  <loc>http://programmerscalculator.apphb.com/Crypto/CeaserCipher</loc>
+</url>
+<url>
+  <loc>http://programmerscalculator.apphb.com/Crypto/Vigenere</loc>
+</url>
+<url>
+  <loc>http://programmerscalculator.apphb.com/Home/HashMd5</loc>
+</url>
+<url>
+  <loc>http://programmerscalculator.apphb.com/Home/SHA/SHA1</loc>
+</url>
+<url>
+  <loc>http://programmerscalculator.apphb.com/Home/SHA/SHA256</loc>
+</url>
+<url>
+  <loc>http://programmerscalculator.apphb.com/Home/SHA/SHA512</loc>
+</url>
+<url>
+  <loc>http://programmerscalculator.apphb.com/Home/HashFile</loc>
+</url>
+<url>
+  <loc>http://programmerscalculator.apphb.com/Home/JsonToXml</loc>
+</url>
+<url>
+  <loc>http://programmerscalculator.apphb.com/Home/XmlToJson</loc>
+</url>
+<url>
+  <loc>http://programmerscalculator.apphb.com/Home/UrlShortner</loc>
+</url>
+</urlset>
