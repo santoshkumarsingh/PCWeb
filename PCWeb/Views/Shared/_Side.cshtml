@@ -1,0 +1,68 @@
+﻿<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+    <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Programmers Calculator", "Index", "Home", null, new { @class = "brand" })
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+
+                        <li>@Html.ActionLink("String", "StringToBinary", "Home")</li>
+
+                        <li>@Html.ActionLink("Conversion", "NumberConversion", "Home")</li>
+                        
+                        <li>@Html.ActionLink("Regex", "Regex", "Home")</li>
+                        <li>@Html.ActionLink("Bit Mask", "BitMask", "Home")</li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Encoding <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("String To Base64", "Base64", "Home")</li>
+                                <li>@Html.ActionLink("Base64 To String ", "Base64ToString", "Home")</li>
+
+
+                            </ul>
+                        </li>
+                         <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Encryption <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                               <li>@Html.ActionLink("RSA", "RSA", "Home")</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hashing <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+
+
+                                <li>@Html.ActionLink("Md5", "HashMd5", "Home", null, new { id = "MD5" })</li>
+                                <li>@Html.ActionLink("SHA1", "SHA", "Home", new { id = "SHA1" }, null)</li>
+                                <li>@Html.ActionLink("SHA256", "SHA", "Home", new { id = "SHA256" }, null)</li>
+                                <li>@Html.ActionLink("SHA512", "SHA", "Home", new { id = "SHA512" }, null)</li>
+                                <li>@Html.ActionLink("Hash Of File", "HashFile", "Home")</li>
+
+                            </ul>
+                        </li>
+                         <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Convertor<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+
+
+                                <li>@Html.ActionLink("Json to xml", "JsonToXml", "Home")</li>
+                                <li>@Html.ActionLink("xml to json", "XmlToJson", "Home")</li>
+                       
+
+                            </ul>
+                        </li>
+                        <li>@Html.ActionLink("Url Shortner","UrlShortner","Home")</li>
+                    </ul>
+                    @*@Html.Partial("_LoginPartial")*@
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>

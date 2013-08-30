@@ -219,6 +219,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Copy of bootstrap.css" />
+    <Content Include="Content\doc.css" />
+    <Content Include="Content\sidebar.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -332,7 +334,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Base64.cshtml" />
     <Content Include="Views\Home\HashMd5.cshtml" />
@@ -350,6 +352,9 @@
     <Content Include="Views\Home\JsonToXml.cshtml" />
     <Content Include="Views\Home\XmlToJson.cshtml" />
     <Content Include="Views\Shared\_AdsenseLarge.cshtml" />
+    <Content Include="Views\Shared\_SideBarMenu.cshtml" />
+    <Content Include="Views\Shared\_Layout_bk.cshtml" />
+    <Content Include="Views\Shared\_Side.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
