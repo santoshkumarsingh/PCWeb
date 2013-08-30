@@ -1,0 +1,64 @@
+﻿@model PCWeb.Models.InputViewModel
+
+@{
+    ViewBag.Title = "Vigenere";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/viginere.js"></script>
+<h2>Vigenere Cipher</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="row">
+        <div class="span6">
+            <fieldset>
+                <legend></legend>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Input, "Enter String")
+                </div>
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.Input, new { @class = "input-xxlarge", cols = 20, rows = 5 })
+                    @Html.ValidationMessageFor(model => model.Input)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Output, "Key")
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.Output, new { @value = 13 })
+                    @Html.ValidationMessageFor(model => model.Output)
+                </div>
+
+                <p>
+                    <input type="button" value="Encrypt" onclick="doCrypt(false)" class="btn btn-primary" />
+                    <input type="button" value="Decrypt" onclick="doCrypt(true)" class="btn btn-primary" />
+                </p>
+            </fieldset>
+
+        </div>
+
+        <div class="span6">
+            <div class="alert alert-info">
+                Vigenere coding is one of the most ancient forms of cryptography. In a Vigenere cipher, messages are encoded by mapping letters to numeric values and adding the plaintext values to the keytext values, modulo the number of letters in the alphabet. In this implementation, A=0, Z=25, and the modulus is 26. Despite its simplicity, the Vigenere cipher is capable of producing 100% crack-proof ciphers if used correctly. To produce an unbreakable cipher, you must:
+
+Choose a key that is as long as the plaintext message.
+Build the key from random characters.
+Never use the key again.
+Don't use text decorations (spaces, punctuations, capitalization).
+
+            </div>
+            @Html.Partial("_Vigenere")
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

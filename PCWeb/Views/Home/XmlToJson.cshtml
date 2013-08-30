@@ -19,7 +19,7 @@
         </div>
         <div class="editor-field">
             
-            @Html.TextAreaFor(model => model.Input,new  { @class = "input-xxlarge",cols=20,rows=5 })
+            @Html.TextAreaFor(model => model.Input,new  { @class = "input-xxlarge",cols=40,rows=10,@Value=ViewBag.Input })
         </div>
 
         <div class="editor-label">
@@ -27,7 +27,7 @@
         </div>
         <div class="editor-field">
             
-            @Html.TextAreaFor(model => model.Output,new  { @class = "input-xxlarge",cols=20,rows=5 })
+            @Html.TextAreaFor(model => model.Output,new  { @class = "input-xxlarge",cols=40,rows=10 })
         </div>
 
       

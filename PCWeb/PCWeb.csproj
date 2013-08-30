@@ -300,6 +300,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\ProgrammersCalculator.js" />
     <Content Include="Scripts\Silverlight.js" />
+    <Content Include="Scripts\viginere.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -356,6 +357,7 @@
     <Content Include="Views\Shared\_Layout_bk.cshtml" />
     <Content Include="Views\Shared\_Side.cshtml" />
     <Content Include="Views\Crypto\CeaserCipher.cshtml" />
+    <Content Include="Views\Crypto\Vigenere.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

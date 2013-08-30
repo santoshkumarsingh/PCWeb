@@ -15,5 +15,10 @@ namespace PCWeb.Controllers
             return View(viewModel);
         }
 
+        public ActionResult Vigenere()
+        {
+            InputViewModel viewModel = new InputViewModel();
+            return View(viewModel);
+        }
     }
 }

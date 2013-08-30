@@ -284,6 +284,7 @@ namespace PCWeb.Controllers
         public ActionResult XmlToJson()
         {
             InputViewModel model = new InputViewModel();
+            ViewBag.Input = "<Root><FirstName>santosh</FirstName><LastName>Singh</LastName></Root>";
             return View(model);
 
         }
@@ -295,7 +296,7 @@ namespace PCWeb.Controllers
             // To convert an XML node contained in string xml into a JSON string   
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(model.Input);
-            string jsonText = JsonConvert.SerializeXmlNode(doc); ;
+            string jsonText = JsonConvert.SerializeXmlNode(doc, Newtonsoft.Json.Formatting.Indented); 
             viewModel.Input = model.Input;
             viewModel.Output = jsonText;
 
