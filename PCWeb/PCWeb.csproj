@@ -358,6 +358,7 @@
     <Content Include="Views\Shared\_Side.cshtml" />
     <Content Include="Views\Crypto\CeaserCipher.cshtml" />
     <Content Include="Views\Crypto\Vigenere.cshtml" />
+    <Content Include="Views\Shared\_Vigenere.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
