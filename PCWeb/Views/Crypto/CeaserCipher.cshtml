@@ -1,0 +1,62 @@
+﻿@model PCWeb.Models.InputViewModel
+
+@{
+    ViewBag.Title = "CeaserCipher";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/ProgrammersCalculator.js"></script>
+<h2>Ceaser Cipher</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="row">
+        <div class="span8">
+
+
+
+            <fieldset>
+
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Input, "Enter String")
+                </div>
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.Input, new { @class = "input-xxlarge", cols = 20, rows = 5 })
+                    @Html.ValidationMessageFor(model => model.Input)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Output, "Shift")
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.Output, new { @value = 13 })
+                    @Html.ValidationMessageFor(model => model.Output)
+                </div>
+
+
+
+                <p>
+                    <input type="button" value="Encrypt" onclick="doCrypt(false)" class="btn btn-primary" />
+                    <input type="button" value="Decrypt" onclick="doCrypt(true)" class="btn btn-primary" />
+                </p>
+            </fieldset>
+
+
+        </div>
+                
+        <div class="span4">
+        <div class="alert alert-success">
+            <a class="close" data-dismiss="alert">×</a>
+            Caesar cipher, also known as Caesar's cipher, is one of the simplest and most widely known encryption techniques. It is a type of substitution cipher in which each letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet. For example, with a left shift of 3, D would be replaced by A, E would become B, and so on. The method is named after Julius Caesar, who used it in his private correspondence.
+        </div>
+            </div>
+    </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
