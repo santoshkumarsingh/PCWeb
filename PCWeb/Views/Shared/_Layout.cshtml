@@ -18,7 +18,7 @@
 
 </head>
 <body>
-
+    <div id="fb-root"></div>
     @Html.Partial("_Side")
 
     <div style="display: table; margin-right: auto; margin-left: auto;">
@@ -63,6 +63,14 @@
         ga('send', 'pageview');
 
     </script>
+    
+<script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=276775795734961";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 </body>
 </html>
 

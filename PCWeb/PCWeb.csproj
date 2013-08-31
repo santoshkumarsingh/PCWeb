@@ -217,8 +217,9 @@
     <Content Include="ClientBin\RegexTester.xap" />
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap-responsive.min.css" />
-    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap_bk.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.css" />
     <Content Include="Content\Copy of bootstrap.css" />
     <Content Include="Content\doc.css" />
     <Content Include="Content\sidebar.css" />
@@ -301,6 +302,9 @@
     <Content Include="Scripts\ProgrammersCalculator.js" />
     <Content Include="Scripts\Silverlight.js" />
     <Content Include="Scripts\viginere.js" />
+    <Content Include="sitemap.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
