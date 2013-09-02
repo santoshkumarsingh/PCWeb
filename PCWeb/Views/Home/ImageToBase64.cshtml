@@ -11,31 +11,44 @@
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
+    <div class="row">
+        <div class="span6">
 
-    <fieldset>
-        <legend>InputViewModel</legend>
+            <fieldset>
+                <legend>InputViewModel</legend>
 
-         <div class="editor-label">
-            @Html.LabelFor(model => model.Input,"Select File")
-        </div>
-        <div class="editor-field">
-          <input type="file" name="file" />
-            @Html.ValidationMessageFor(model => model.Input)
-        </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Input, "Select File")
+                </div>
+                <div class="editor-field">
+                    <input type="file" name="file" />
+                    @Html.ValidationMessageFor(model => model.Input)
+                </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Output)
-        </div>
-        <div class="editor-field">
-            @Html.TextAreaFor(model => model.Output,new  { @class = "input-xxlarge",cols=20,rows=5 })
-            @Html.ValidationMessageFor(model => model.Output)
-        </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Output)
+                </div>
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.Output, new { @class = "input-xxlarge", cols = 20, rows = 5 })
+                    @Html.ValidationMessageFor(model => model.Output)
+                </div>
 
-     
-        <p>
-            <input type="submit" value="Convert" class="btn btn-primary" />
-        </p>
-    </fieldset>
+
+                <p>
+                    <input type="submit" value="Convert" class="btn btn-primary" />
+                </p>
+            </fieldset>
+
+        </div>
+        <div class="span4">
+            <div class="alert alert-success">
+            This tool will convert an image into a base64 encoded data url which will load/display as an img-src. e.g.
+            &lt;img src="data:image/png;base64..."&gt;
+            Select image from the "Browse" file button and click on convert then it will load into this text box as a base64 data url.
+                </div>
+        </div>
+    </div>
+
 }
 
 
