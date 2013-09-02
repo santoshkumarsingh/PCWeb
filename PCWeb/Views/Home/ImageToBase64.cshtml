@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ImageToBase64</h2>
+<h2>Image to Base64 Convertor</h2>
 
 @using (Html.BeginForm("ImageToBase64", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
@@ -15,7 +15,7 @@
         <div class="span6">
 
             <fieldset>
-                <legend>InputViewModel</legend>
+                <legend></legend>
 
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Input, "Select File")
