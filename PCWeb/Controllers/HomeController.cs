@@ -19,7 +19,7 @@ namespace PCWeb.Controllers
     {
         protected override void OnException(ExceptionContext filterContext)
         {
-            
+
             base.OnException(filterContext);
 
         }
@@ -266,17 +266,17 @@ namespace PCWeb.Controllers
         [ValidateInput(false)]
         public ActionResult JsonToXml(InputViewModel model)
         {
-            
-                InputViewModel viewModel = new InputViewModel();
-                // To convert JSON text contained in string json into an XML node
-                XmlDocument doc = (XmlDocument)JsonConvert.DeserializeXmlNode(model.Input);
-                viewModel.Input = model.Input;
-                viewModel.Output = doc.InnerXml;
 
-                ModelState.Clear(); // this is the key, you could also just clear ModelState for the id field
+            InputViewModel viewModel = new InputViewModel();
+            // To convert JSON text contained in string json into an XML node
+            XmlDocument doc = (XmlDocument)JsonConvert.DeserializeXmlNode(model.Input);
+            viewModel.Input = model.Input;
+            viewModel.Output = doc.InnerXml;
 
-                return View(viewModel);
-            
+            ModelState.Clear(); // this is the key, you could also just clear ModelState for the id field
+
+            return View(viewModel);
+
 
         }
 
@@ -296,7 +296,7 @@ namespace PCWeb.Controllers
             // To convert an XML node contained in string xml into a JSON string   
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(model.Input);
-            string jsonText = JsonConvert.SerializeXmlNode(doc, Newtonsoft.Json.Formatting.Indented); 
+            string jsonText = JsonConvert.SerializeXmlNode(doc, Newtonsoft.Json.Formatting.Indented);
             viewModel.Input = model.Input;
             viewModel.Output = jsonText;
 
@@ -306,7 +306,33 @@ namespace PCWeb.Controllers
 
         }
 
+        [ValidateInput(false)]
+        public ActionResult ImageToBase64()
+        {
+            InputViewModel model = new InputViewModel();
+            return View(model);
 
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult ImageToBase64(HttpPostedFileBase file)
+        {
+            InputViewModel viewModel = new InputViewModel();
+            if (file != null && file.ContentLength > 0)
+            {
+                var fileStream = file.InputStream;
+                viewModel.Output = "<img alt=\"\" src=\"data:image/bmp;base64," + Convert.ToBase64String(ImageToByteArray(fileStream)) + "/>";
+
+            }
+            ModelState.Clear(); // this is the key, you could also just clear ModelState for the id field
+            return View(viewModel);
+        }
+        private byte[] ImageToByteArray(Stream stream)
+        {
+            MemoryStream ms = new MemoryStream();
+            stream.CopyTo(ms);
+            return ms.ToArray();
+        }
         private static string GoogleResponse(string p)
         {
             var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://www.googleapis.com/urlshortener/v1/url");

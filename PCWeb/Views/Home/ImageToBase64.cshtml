@@ -1,0 +1,44 @@
+﻿@model PCWeb.Models.InputViewModel
+
+@{
+    ViewBag.Title = "ImageToBase64";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ImageToBase64</h2>
+
+@using (Html.BeginForm("ImageToBase64", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>InputViewModel</legend>
+
+         <div class="editor-label">
+            @Html.LabelFor(model => model.Input,"Select File")
+        </div>
+        <div class="editor-field">
+          <input type="file" name="file" />
+            @Html.ValidationMessageFor(model => model.Input)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Output)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Output,new  { @class = "input-xxlarge",cols=20,rows=5 })
+            @Html.ValidationMessageFor(model => model.Output)
+        </div>
+
+     
+        <p>
+            <input type="submit" value="Convert" class="btn btn-primary" />
+        </p>
+    </fieldset>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
