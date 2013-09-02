@@ -29,7 +29,7 @@
                             <ul class="dropdown-menu">
                                 <li>@Html.ActionLink("String To Base64", "Base64", "Home")</li>
                                 <li>@Html.ActionLink("Base64 To String ", "Base64ToString", "Home")</li>
-                                <li>@Html.ActionLink("Image To Base64", "ImageToBase64", "Home")</li>
+                                <li>@Html.ActionLink("Image To Base64","ImageToBase64","Home")</li>
 
 
                             </ul>
@@ -68,13 +68,31 @@
                             </ul>
                         </li>
                         <li>@Html.ActionLink("Url Shortner", "UrlShortner", "Home")</li>
-                       @* <li class="socials">
-                            <div class="fb-like" data-href="http://programmerscalculator.apphb.com/" data-width="20" data-layout="button_count" data-show-faces="true" data-send="false"></div>
-                        </li>*@
+                          <li class="socials">
+                                <div class="fb-like" data-href="http://programmerscalculator.apphb.com/" data-width="20" data-layout="button_count" data-show-faces="true" data-send="false"></div>
+                            </li>
                     </ul>
                     @*@Html.Partial("_LoginPartial")*@
                 </div>
+                @*<ul class="nav pull-right">
+                    <li class="dropdown">
+                        <a href="#"
+                            class="dropdown-toggle"
+                            data-toggle="dropdown">Social  
+          <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="socials">
+                                <!-- Place this tag where you want the +1 button to render -->
+                                <g:plusone annotation="inline" width="150"></g:plusone>
+                            </li>
+                            <li class="socials">
+                                <div class="fb-like" data-href="http://programmerscalculator.apphb.com/" data-width="20" data-layout="button_count" data-show-faces="true" data-send="false"></div>
+                            </li>
 
+                        </ul>
+                    </li>
+                </ul>*@
 
             </div>
         </div>

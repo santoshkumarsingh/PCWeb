@@ -326,7 +326,7 @@ namespace PCWeb.Controllers
             }
             ModelState.Clear(); // this is the key, you could also just clear ModelState for the id field
             return View(viewModel);
-        }
+         }
         private byte[] ImageToByteArray(Stream stream)
         {
             MemoryStream ms = new MemoryStream();
