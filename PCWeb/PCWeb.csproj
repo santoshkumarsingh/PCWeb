@@ -356,6 +356,7 @@
     <Content Include="Views\Crypto\Vigenere.cshtml" />
     <Content Include="Views\Shared\_Vigenere.cshtml" />
     <Content Include="Views\Home\ImageToBase64.cshtml" />
+    <Content Include="Views\Home\HtmlToDiv.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

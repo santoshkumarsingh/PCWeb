@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using System.Xml;
@@ -327,6 +328,39 @@ namespace PCWeb.Controllers
             ModelState.Clear(); // this is the key, you could also just clear ModelState for the id field
             return View(viewModel);
          }
+        
+        public ActionResult HtmlToDiv()
+        {
+            InputViewModel model = new InputViewModel();
+            return View(model);
+
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult HtmlToDiv(InputViewModel model)
+        {
+            InputViewModel viewModel = new InputViewModel();
+
+            viewModel.Input = model.Input;
+            viewModel.Output = HtmlTableToDiv(model.Input);
+            ModelState.Clear(); // this is the key, you could also just clear ModelState for the id field
+            return View(viewModel);
+        }
+        private static string HtmlTableToDiv(string input)
+        {        
+
+            var data = input.ToLower();
+            var replace = @"<div class='td_1'>$1</div>";
+
+            data = data.Replace("<table>", "<div class=table>");
+            data = data.Replace("<tr>", "<div clas=tr>");
+            data = data.Replace("</table>", "</div>");
+            data = data.Replace("</tr>", "</div>");
+
+
+            var result = System.Text.RegularExpressions.Regex.Replace(data, @"<td.*?>(.*?)</td>", replace, RegexOptions.Singleline | RegexOptions.IgnoreCase);
+            return result;
+        }
         private byte[] ImageToByteArray(Stream stream)
         {
             MemoryStream ms = new MemoryStream();
