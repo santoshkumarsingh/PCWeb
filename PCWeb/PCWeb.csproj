@@ -357,6 +357,7 @@
     <Content Include="Views\Shared\_Vigenere.cshtml" />
     <Content Include="Views\Home\ImageToBase64.cshtml" />
     <Content Include="Views\Home\HtmlToDiv.cshtml" />
+    <Content Include="Views\Home\HexViewer.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

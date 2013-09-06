@@ -327,8 +327,35 @@ namespace PCWeb.Controllers
             }
             ModelState.Clear(); // this is the key, you could also just clear ModelState for the id field
             return View(viewModel);
-         }
-        
+        }
+
+
+        [ValidateInput(false)]
+        public ActionResult HexViewer()
+        {
+            InputViewModel model = new InputViewModel();
+            return View(model);
+
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult HexViewer(HttpPostedFileBase file)
+        {
+            InputViewModel viewModel = new InputViewModel();
+            if (file != null && file.ContentLength > 0)
+            {
+                var fileStream = file.InputStream;
+                viewModel.Output = HexViewer(fileStream);
+
+            }
+            ModelState.Clear(); // this is the key, you could also just clear ModelState for the id field
+            return View(viewModel);
+        }
+
+
+
+
+
         public ActionResult HtmlToDiv()
         {
             InputViewModel model = new InputViewModel();
@@ -347,7 +374,7 @@ namespace PCWeb.Controllers
             return View(viewModel);
         }
         private static string HtmlTableToDiv(string input)
-        {        
+        {
 
             var data = input.ToLower();
             var replace = @"<div class='td_1'>$1</div>";
@@ -387,6 +414,74 @@ namespace PCWeb.Controllers
                 var result = Newtonsoft.Json.JsonConvert.DeserializeObject<UrlShortner>(responseText);
                 return result.ID;
             }
+        }
+
+        public static string Hex(long number, int digits) // Hex, two digits
+        {
+            string temp = Convert.ToString(number, 16);
+            while (temp.Length < digits)
+                temp = "0" + temp;
+            return temp;
+        }
+        public static string HexViewer(Stream myFile)
+        {
+
+            byte[] data;
+            const int SIZE = 16;
+            int amountRead;
+            int counter = 0;
+            string line = "";
+
+            StringBuilder builder = new StringBuilder();
+            try
+            {
+
+                data = new byte[SIZE];
+
+                do
+                {
+                    // Position
+
+                    builder.Append(Hex(myFile.Position, 8));
+                    builder.Append("   ");
+
+                    // Hex data
+                    amountRead = myFile.Read(data, 0, SIZE);
+                    for (int i = 0; i < amountRead; i++)
+                    {
+
+                        builder.Append(Hex(data[i], 2) + "    ");
+                        if (data[i] < 32)
+                            line += ".";
+                        else
+                            line += Convert.ToChar(data[i]);
+                    }
+                    // Ascii data
+                    if (amountRead < SIZE)
+                        for (int i = amountRead; i < SIZE; i++)
+                        {
+                            builder.Append("  ");
+
+                        }
+                    builder.AppendLine(line);
+                    line = "";
+                    // And prepare for the next line
+                    counter++;
+                    if (counter == 24)
+                    {
+
+                        counter = 0;
+                    }
+                }
+                while (amountRead == SIZE);
+
+                myFile.Close();
+            }
+            catch (Exception e)
+            {
+
+            }
+            return builder.ToString();
         }
     }
 }
