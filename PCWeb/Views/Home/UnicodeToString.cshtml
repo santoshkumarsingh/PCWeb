@@ -7,33 +7,47 @@
 
 <h2>UnicodeToString</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend></legend>
+    <div class="row">
+        <div class="span8">
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Input)
-        </div>
-        <div class="editor-field">
-            @Html.TextAreaFor(model => model.Input,new  { @class = "input-xxlarge",cols=25,rows=8 })
-            @Html.ValidationMessageFor(model => model.Input)
-        </div>
+            <fieldset>
+                <legend></legend>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Output)
-        </div>
-        <div class="editor-field">
-            @Html.TextAreaFor(model => model.Output,new  { @class = "input-xxlarge",cols=25,rows=8 })
-            @Html.ValidationMessageFor(model => model.Output)
-        </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Input)
+                </div>
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.Input, new { @class = "input-xxlarge", cols = 25, rows = 8 })
+                    @Html.ValidationMessageFor(model => model.Input)
+                </div>
 
-        <p>
-            <input type="submit" value="Convert" class="btn btn-primary" />
-        </p>
-    </fieldset>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Output)
+                </div>
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.Output, new { @class = "input-xxlarge", cols = 25, rows = 8 })
+                    @Html.ValidationMessageFor(model => model.Output)
+                </div>
+
+                <p>
+                    <input type="submit" value="Convert" class="btn btn-primary" />
+                </p>
+            </fieldset>
+
+        </div>
+        <div class="span4">
+            <div class="alert alert-info">
+                Unicode is a computing industry standard for the consistent encoding, representation and handling of text expressed in most of the world's writing systems. Developed in conjunction with the Universal Character Set standard and published in book form as The Unicode Standard, the latest version of Unicode consists of a repertoire of more than 109,000 characters covering 93 scripts, a set of code charts for visual reference, an encoding methodology and set of standard character encodings, an enumeration of character properties such as upper and lower case, a set of reference data computer files, and a number of related items, such as character properties, rules for normalization, decomposition, collation, rendering, and bidirectional display order (for the correct display of text containing both right-to-left scripts, such as Arabic and Hebrew, and left-to-right scripts). As of 2011, the most recent major revision of Unicode is Unicode 6.0. The Unicode Consortium, the nonprofit organization that coordinates Unicode's development, has the ambitious goal of eventually replacing existing character encoding schemes with Unicode and its standard Unicode Transformation Format (UTF) schemes, as many of the existing schemes are limited in size and scope and are incompatible with multilingual environments. Unicode's success at unifying character sets has led to its widespread and predominant use in the internationalization and localization of computer software. The standard has been implemented in many recent technologies, including XML, the Java programming language, the Microsoft .NET Framework, and modern operating systems. Unicode can be implemented by different character encodings. The most commonly used encodings are UTF-8 (which uses one byte for any ASCII characters, which have the same code values in both UTF-8 and ASCII encoding, and up to four bytes for other characters), the now-obsolete UCS-2 (which uses two bytes for each character but cannot encode every character in the current Unicode standard), and UTF-16 (which extends UCS-2 to handle code points beyond the scope of UCS-2).
+
+Source: Wikipedia
+            </div>
+        </div>
+    </div>
 }
 
 <div>
