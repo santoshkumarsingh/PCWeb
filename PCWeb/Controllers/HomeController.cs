@@ -270,7 +270,8 @@ namespace PCWeb.Controllers
 
             InputViewModel viewModel = new InputViewModel();
             // To convert JSON text contained in string json into an XML node
-            XmlDocument doc = (XmlDocument)JsonConvert.DeserializeXmlNode(model.Input);
+            XmlDocument doc = (XmlDocument)JsonConvert.DeserializeXmlNode("{\"root\":" + model.Input + "}", "root");
+            
             viewModel.Input = model.Input;
             viewModel.Output = doc.InnerXml;
 
