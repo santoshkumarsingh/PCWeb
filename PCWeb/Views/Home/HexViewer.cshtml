@@ -30,7 +30,8 @@
                     @Html.LabelFor(model => model.Output)
                 </div>
                 <div class="editor-field">
-                    @Html.TextAreaFor(model => model.Output, new { @class = "myinput", cols = 50, rows = 20 })
+                    @*@Html.LabelFor(model => model.Output, new { @class = "myinput", cols = 50, rows = 20 })*@
+                    @Html.Raw(Model.Output);
                     @Html.ValidationMessageFor(model => model.Output)
                 </div>
         <p>

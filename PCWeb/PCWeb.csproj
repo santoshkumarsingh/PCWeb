@@ -199,6 +199,7 @@
     <Compile Include="IBase64Validator.cs" />
     <Compile Include="Interface\IAlgorithm.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Encoding.cs" />
     <Compile Include="Models\Extension.cs" />
     <Compile Include="Models\HashAlgorithmStrategy.cs" />
     <Compile Include="Models\HashInfo.cs" />
@@ -358,6 +359,8 @@
     <Content Include="Views\Home\ImageToBase64.cshtml" />
     <Content Include="Views\Home\HtmlToDiv.cshtml" />
     <Content Include="Views\Home\HexViewer.cshtml" />
+    <Content Include="Views\Home\UTFToAsci.cshtml" />
+    <Content Include="Views\Home\UnicodeToString.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

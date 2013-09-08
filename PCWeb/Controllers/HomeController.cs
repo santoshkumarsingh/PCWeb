@@ -373,6 +373,37 @@ namespace PCWeb.Controllers
             ModelState.Clear(); // this is the key, you could also just clear ModelState for the id field
             return View(viewModel);
         }
+
+        public ActionResult UTFToAsci()
+        {
+            InputViewModel viewModel = new InputViewModel();
+            return View(viewModel);
+        }
+        [HttpPost]
+        public ActionResult UTFToAsci(InputViewModel model)
+        {
+            InputViewModel viewModel = new InputViewModel();
+            viewModel.Input = model.Input;
+            viewModel.Output = model.Input.EncodeNonAsciiCharacters();
+            ModelState.Clear(); // this is the key, you could also just clear ModelState for the id field
+
+            return View(viewModel);
+        }
+        public ActionResult UnicodeToString()
+        {
+            InputViewModel viewModel = new InputViewModel();
+            return View(viewModel);
+        }
+        [HttpPost]
+        public ActionResult UnicodeToString(InputViewModel model)
+        {
+            InputViewModel viewModel = new InputViewModel();
+            viewModel.Input = model.Input;
+            viewModel.Output = model.Input.DecodeEncodedNonAsciiCharacters();
+            ModelState.Clear(); // this is the key, you could also just clear ModelState for the id field
+
+            return View(viewModel);
+        }
         private static string HtmlTableToDiv(string input)
         {
 

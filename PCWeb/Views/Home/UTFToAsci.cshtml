@@ -1,0 +1,44 @@
+﻿@model PCWeb.Models.InputViewModel
+
+@{
+    ViewBag.Title = "UTF8ASCII";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UTF8->ASCII</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Input)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Input,new  { @class = "input-xxlarge",cols=25,rows=8 })
+            @Html.ValidationMessageFor(model => model.Input)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Output)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Output,new  { @class = "input-xxlarge",cols=25,rows=8 })
+            @Html.ValidationMessageFor(model => model.Output)
+        </div>
+
+      
+
+        <p>
+            <input type="submit" value="Convert To ASCII" class="btn btn-primary" />
+        </p>
+    </fieldset>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,45 @@
+﻿@model PCWeb.Models.InputViewModel
+
+@{
+    ViewBag.Title = "UnicodeToString";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UnicodeToString</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Input)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Input,new  { @class = "input-xxlarge",cols=25,rows=8 })
+            @Html.ValidationMessageFor(model => model.Input)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Output)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Output,new  { @class = "input-xxlarge",cols=25,rows=8 })
+            @Html.ValidationMessageFor(model => model.Output)
+        </div>
+
+        <p>
+            <input type="submit" value="Convert" class="btn btn-primary" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
