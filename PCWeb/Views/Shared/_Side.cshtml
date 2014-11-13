@@ -4,7 +4,8 @@
     }
 </style>
 
-<div class="navbar navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+
     <div class="navbar-inner">
         <div class="container">
             <div class="container">
@@ -14,24 +15,30 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Programmers Calculator", "Index", "Home", null, new { @class = "brand" })
+
                 <div class="nav-collapse collapse">
                     <ul class="nav">
 
-                        <li>@Html.ActionLink("String", "StringToBinary", "Home")</li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bit manipulation <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("String", "StringToBinary", "Home")</li>
+                                <li>@Html.ActionLink("Conversion", "NumberConversion", "Home")</li>
+                                <li>@Html.ActionLink("Regex", "Regex", "Home")</li>
+                                <li>@Html.ActionLink("Bit Mask", "BitMask", "Home")</li>
 
-                        <li>@Html.ActionLink("Conversion", "NumberConversion", "Home")</li>
 
-                        <li>@Html.ActionLink("Regex", "Regex", "Home")</li>
-                        <li>@Html.ActionLink("Bit Mask", "BitMask", "Home")</li>
-
+                            </ul>
+                        </li>
+                        
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Encoding <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>@Html.ActionLink("String To Base64", "Base64", "Home")</li>
                                 <li>@Html.ActionLink("Base64 To String ", "Base64ToString", "Home")</li>
-                                <li>@Html.ActionLink("Image To Base64","ImageToBase64","Home")</li>
-                                <li>@Html.ActionLink("UTF8 TO ASCII","UTFToAsci","Home")</li>
-                                <li>@Html.ActionLink("Unicode To String","UnicodeToString","Home")</li>
+                                <li>@Html.ActionLink("Image To Base64", "ImageToBase64", "Home")</li>
+                                <li>@Html.ActionLink("UTF8 TO ASCII", "UTFToAsci", "Home")</li>
+                                <li>@Html.ActionLink("Unicode To String", "UnicodeToString", "Home")</li>
 
 
                             </ul>
@@ -55,6 +62,7 @@
                                 <li>@Html.ActionLink("SHA256", "SHA", "Home", new { id = "SHA256" }, null)</li>
                                 <li>@Html.ActionLink("SHA512", "SHA", "Home", new { id = "SHA512" }, null)</li>
                                 <li>@Html.ActionLink("Hash Of File", "HashFile", "Home")</li>
+                                <li>@Html.ActionLink("Hex View", "HexViewer", "Home")</li>
 
                             </ul>
                         </li>
@@ -65,41 +73,41 @@
 
                                 <li>@Html.ActionLink("Json to xml", "JsonToXml", "Home")</li>
                                 <li>@Html.ActionLink("xml to json", "XmlToJson", "Home")</li>
-                                <li>@Html.ActionLink("Html To Div","HtmlToDiv","Home")</li>
+                                <li>@Html.ActionLink("Html To Div", "HtmlToDiv", "Home")</li>
 
 
                             </ul>
                         </li>
                         <li>@Html.ActionLink("Url Shortner", "UrlShortner", "Home")</li>
-                        <li>@Html.ActionLink("Hex View", "HexViewer", "Home")</li>
-                          @*<li class="socials">
+                        
+                        @*<li class="socials">
                                 <div class="fb-like" data-href="http://programmerscalculator.apphb.com/" data-width="20" data-layout="button_count" data-show-faces="true" data-send="false"></div>
                             </li>*@
                     </ul>
                     @*@Html.Partial("_LoginPartial")*@
                 </div>
                 @*<ul class="nav pull-right">
-                    <li class="dropdown">
-                        <a href="#"
-                            class="dropdown-toggle"
-                            data-toggle="dropdown">Social  
-          <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="socials">
-                                <!-- Place this tag where you want the +1 button to render -->
-                                <g:plusone annotation="inline" width="150"></g:plusone>
-                            </li>
-                            <li class="socials">
-                                <div class="fb-like" data-href="http://programmerscalculator.apphb.com/" data-width="20" data-layout="button_count" data-show-faces="true" data-send="false"></div>
-                            </li>
+                              <li class="dropdown">
+                                  <a href="#"
+                                      class="dropdown-toggle"
+                                      data-toggle="dropdown">Social
+                    <b class="caret"></b>
+                                  </a>
+                                  <ul class="dropdown-menu">
+                                      <li class="socials">
+                                          <!-- Place this tag where you want the +1 button to render -->
+                                          <g:plusone annotation="inline" width="150"></g:plusone>
+                                      </li>
+                                      <li class="socials">
+                                          <div class="fb-like" data-href="http://programmerscalculator.apphb.com/" data-width="20" data-layout="button_count" data-show-faces="true" data-send="false"></div>
+                                      </li>
 
-                        </ul>
-                    </li>
-                </ul>*@
+                                  </ul>
+                              </li>
+                          </ul>*@
 
             </div>
         </div>
     </div>
-</div>
+    </div>
 
